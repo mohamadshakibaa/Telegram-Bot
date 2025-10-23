@@ -1,0 +1,3 @@
+BOT_TOKEN = ""
+ADMINS_USERNAME = []
+VALID_CHATS = []
