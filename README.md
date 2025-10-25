@@ -12,14 +12,17 @@ A small Telegram bot that stores incoming messages in a local TinyDB database an
 ## Repo structure (important files)
 ```python
 .
-├─ bot.py                # main bot code (your telebot handlers)
-├─ config.py             # BOT_TOKEN, ADMINS_USERNAME, VALID_CHATS
-├─ constants.py          # WELCOME_MESSAGE
-├─ db.py                 # DBHandler (TinyDB wrapper)
-├─ llm.py                # OpenAI client wrapper (call_llm())
-├─ requirements.txt      # suggested dependencies
-├─ messages_db.json      # TinyDB file (created at runtime)
+├─ src/
+│  ├─ bot.py             # Main bot logic and message/reaction handlers
+│  ├─ config.py          # BOT_TOKEN, ADMINS_USERNAME, VALID_CHATS
+│  ├─ constants.py       # WELCOME_MESSAGE
+│  ├─ db.py              # TinyDB database wrapper (DBHandler)
+│  ├─ llm.py             # OpenAI integration (call_llm function)
+│  └─ messages_db.json   # Created automatically at runtime
+│
+├─ requirements.txt      # Python dependencies
 └─ README.md
+
 ```
 
 ## Configuration
