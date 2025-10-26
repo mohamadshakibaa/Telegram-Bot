@@ -4,8 +4,10 @@ from constants import WELCOME_MESSAGE
 from llm import call_llm
 from db import DBHandler
 
+
 bot = telebot.TeleBot(BOT_TOKEN, parse_mode="HTML")
 db_handler = DBHandler()
+
 
 @bot.message_handler(commands=["start", "help"])
 def send_welcome(message):
@@ -32,9 +34,9 @@ def handle_reaction(message: telebot.types.Message):
     reaction = message.new_reaction[-1].emoji
     if reaction not in ["👍"]:
         return
-    
+
     message_text = db_handler.get_message(message.message_id).get("text")
-    message = bot.reply_to(message, f'... صبر کنید  ')
+    message = bot.reply_to(message, f"... صبر کنید  ")
     response = call_llm(message_text)
     bot.edit_message_text(chat_id=message.chat.id, message_id=message.id, text=response)
 
